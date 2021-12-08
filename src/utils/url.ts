@@ -1,0 +1,1 @@
+export const URL = 'https://api.npoint.io/1526f47d509ac91b8170';
