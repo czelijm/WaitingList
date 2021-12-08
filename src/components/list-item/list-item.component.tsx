@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import { Colors } from '../../constants/colors';
 import IMember from '../../models/member';
-import { getIntervalInDaysMinutesHoursJSON, getIntervalInYearsMothsDaysJSON, getYearsMothsDaysFromIntervalJSON } from '../../utils/dateInterval';
+import { getIntervalInDaysMinutesHoursJSON} from '../../utils/dateInterval';
 import { NameStyles, ClockStyles, ClockDescriptionStyles, StatusMessageStyles, SetPriority } from './list-tem.styles';
 
 
@@ -12,9 +12,9 @@ function ListItem(m:IMember) : React.ReactElement {
     // var dateInterval = getIntervalInYearsMothsDaysJSON(m.startingDay);
     // console.log( m.startingDay.toISOString())
     
-    var datesInterval = new Date((new Date()).getTime() - m.startingDay.getTime())
+    // var datesInterval = new Date((new Date()).getTime() - m.startingDay.getTime())
 
-    const datesIntervalRef = useRef(datesInterval)
+    // const datesIntervalRef = useRef(datesInterval)
 
     var intervalId:any;
 
@@ -29,8 +29,8 @@ function ListItem(m:IMember) : React.ReactElement {
             //dasedOnDates
             //new wai
             setDateInterval(getIntervalInDaysMinutesHoursJSON(m.startingDay))
-        }, 1);//1000);
-        console.log("rerender useEffect")
+        }, 1000);//1000);
+        // console.log("rerender useEffect")
         return () => clearInterval(intervalId);
     }, []);
 
