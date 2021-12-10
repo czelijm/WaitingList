@@ -1,4 +1,5 @@
 interface IMember{
+    id:number|undefined;
     name: string | undefined;
     status: string;
     startingDay: Date;
