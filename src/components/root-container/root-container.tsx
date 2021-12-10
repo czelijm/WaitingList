@@ -20,7 +20,7 @@ function RootContainer() : React.ReactElement {
   //   priority: 1,
   // }
 
-  const [sortingStyle, setSortingStyle] = useState(SortingEnum.NewestAdded); 
+  const [sortingStyle, setSortingStyle] = useState(SortingEnum.Oldest); 
   
   const sortRef = useRef<SortingContainer>(); 
 
@@ -80,15 +80,10 @@ console.log(result);
     <>
       <div className={css``}>
         <Select labelId="label" id="select" value={sortingStyle} className={css`background-color:white; display:flex`} onChange={handleChange}>
-          {/* {sortRef.current?.dictionary.forEach((v,k)=>(
-            <MenuItem value={k}>{v.description}</MenuItem>
-          ))} //check values method */} 
-          {Array.from(sortRef.current?.dictionary!,(i)=>(
+          {
+          Array.from(sortRef.current?.dictionary!,(i)=>{ console.log("XD" + i); return (
             <MenuItem value={i[0]}>{i[1].description}</MenuItem>
-          ))}
-          {/* <MenuItem value={SortingEnum.NewestAdded}>{sortRef.current?.dictionary.get(SortingEnum.NewestAdded)?.description} </MenuItem>
-          <MenuItem value={SortingEnum.ByName}>by Name</MenuItem>
-          <MenuItem value={SortingEnum.ByPriority}>by Priority</MenuItem> */}
+          )})}
         </Select>
       </div>
       <ListContainer list={result}/>
