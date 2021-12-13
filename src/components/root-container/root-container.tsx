@@ -4,10 +4,9 @@ import useFetchData from '../../hooks/use-fetch-data';
 import { URL } from '../../utils/url';
 import getIMembersFromResponse from '../../utils/process-response';
 import { SortingContainer,  SortingEnum } from '../../utils/sorting-utils';
-import { css } from '@emotion/css';
 import IMember from '../../models/member';
 import ListContainer from '../list-container/list.container';
-import { SelectStyles } from './root-container.styles';
+import { SelectContainerStyles, SelectStyles } from './root-container.styles';
 
 
 function RootContainer() : React.ReactElement {
@@ -55,7 +54,7 @@ function RootContainer() : React.ReactElement {
   
   return (
     <>
-      <div className={css``}>
+      <div className={SelectContainerStyles}>
         <Select labelId="label" id="select" value={sortingStyle} className={SelectStyles} onChange={handleChange}>
           {
           Array.from(sortRef.current?.dictionary!,(i)=>{ return (
