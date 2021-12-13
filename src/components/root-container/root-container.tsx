@@ -11,7 +11,7 @@ import { SelectContainerStyles, SelectStyles } from './root-container.styles';
 
 function RootContainer() : React.ReactElement {
 
-  const [sortingStyle, setSortingStyle] = useState(SortingEnum.Oldest); 
+  const [sortingStyle, setSortingStyle] = useState(SortingEnum.ByPriorityDescending); 
   
   const sortRef = useRef<SortingContainer>(); 
 
@@ -39,7 +39,8 @@ function RootContainer() : React.ReactElement {
   if(resultRef.current===undefined) {
     if(loading) return <div>Loading...</div>
 
-    result = getIMembersFromResponse(data!); 
+    result = getIMembersFromResponse(data!);
+    result.sort(sortRef.current!.dictionary.get(sortingStyle)?.action) 
     
   } else {
     result = resultRef.current; 

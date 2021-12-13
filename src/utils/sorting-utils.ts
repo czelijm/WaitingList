@@ -45,10 +45,10 @@ export class SortingContainer{
             return 0;
         }))
         this.dictionary.set(SortingEnum.ByPriorityAscending, new SortingDescription("by priority ascending",SortingEnum.ByPriorityAscending,(a:IMember,b:IMember)=>{
-            return a.priority!-b.priority!;
+            return b.priority!-a.priority!;
         }))
         this.dictionary.set(SortingEnum.ByPriorityDescending, new SortingDescription("by priority descending",SortingEnum.ByPriorityDescending,(a:IMember,b:IMember)=>{
-            return b.priority!-a.priority!;
+            return a.priority!-b.priority!;
         }))
 
     }
