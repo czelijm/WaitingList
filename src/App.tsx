@@ -1,8 +1,6 @@
 
 import { Global,css } from '@emotion/react';
-import React, { useEffect } from 'react';
 import './App.css';
-import ListContainer from './components/list-container/list.container';
 import RootContainer from './components/root-container/root-container';
 import { Colors } from './constants/colors';
 

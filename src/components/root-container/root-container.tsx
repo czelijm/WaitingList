@@ -1,24 +1,16 @@
-import React, { createRef, useEffect, useRef, useState } from 'react';
-import { Grid, MenuItem, Select } from '@mui/material';
-import ListItem from "../list-item/list-item.component"
+import React, { useEffect, useRef, useState } from 'react';
+import { MenuItem, Select } from '@mui/material';
 import useFetchData from '../../hooks/use-fetch-data';
 import { URL } from '../../utils/url';
 import getIMembersFromResponse from '../../utils/process-response';
-import { SortingContainer, SortingDescription, SortingEnum } from '../../utils/sorting-enum';
+import { SortingContainer,  SortingEnum } from '../../utils/sorting-utils';
 import { css } from '@emotion/css';
 import IMember from '../../models/member';
 import ListContainer from '../list-container/list.container';
+import { SelectStyles } from './root-container.styles';
 
 
 function RootContainer() : React.ReactElement {
-
-  // const mem = new Member("Krzysztof","Waiting");
-  // let mem: IMember = {
-  //   name:"Krzysztof",
-  //   status:"Waiting",
-  //   startingDay: (new Date(2021,11,6)),
-  //   priority: 1,
-  // }
 
   const [sortingStyle, setSortingStyle] = useState(SortingEnum.Oldest); 
   
@@ -42,15 +34,6 @@ function RootContainer() : React.ReactElement {
     loading,
     error
   } = useFetchData(URL);
-
-  // console.log({
-  //   data,
-  //   loading,
-  //   error
-  // });
-
-  console.log('Reff?' + resultRef.current)
-
   
   if(error || typeof(data)==='string') return <div>Something went wrong</div>
 
@@ -62,8 +45,7 @@ function RootContainer() : React.ReactElement {
   } else {
     result = resultRef.current; 
   }
-  
-  // result = getIMembersFromResponse(data!);
+
   
   const handleChange = (event:any) :void => {
     setSortingStyle(event.target.value);
@@ -71,17 +53,12 @@ function RootContainer() : React.ReactElement {
     resultRef.current = result;
   };
   
-  console.log(
-    'download!!!'
-  );
-console.log(result);
-
   return (
     <>
       <div className={css``}>
-        <Select labelId="label" id="select" value={sortingStyle} className={css`background-color:white; display:flex`} onChange={handleChange}>
+        <Select labelId="label" id="select" value={sortingStyle} className={SelectStyles} onChange={handleChange}>
           {
-          Array.from(sortRef.current?.dictionary!,(i)=>{ console.log("XD" + i); return (
+          Array.from(sortRef.current?.dictionary!,(i)=>{ return (
             <MenuItem value={i[0]}>{i[1].description}</MenuItem>
           )})}
         </Select>

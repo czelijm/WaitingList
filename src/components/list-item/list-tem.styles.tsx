@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import { Colors } from "../../constants/colors";
 import { priorityColorArray } from "../../models/priority";
 
 export const NameStyles = css`
