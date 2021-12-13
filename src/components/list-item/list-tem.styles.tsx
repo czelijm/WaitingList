@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import { Colors } from "../../constants/colors";
 import { priorityColorArray } from "../../models/priority";
 
 export const NameStyles = css`
@@ -21,12 +22,16 @@ export const ClockDescriptionStyles = css`
 `
 
 export const ClockDigitsStyles = css`
-
+    background-color:${Colors.DARK_BLUE}; height: 100%; width:auto;
 `
+export const ClockDigitsDiv = css` 
+    margin-bottom:20px; display: flex; align-items: flex-start; width:100%
+`
+
 export const StatusMessageStyles = css`
     font-size: 14px;
     
 `
 export const SetPriority = (priority:number):string => css`
-background-color: ${priorityColorArray[priority]};
+    background-color: ${priorityColorArray[priority]};
 `

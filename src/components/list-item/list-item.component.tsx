@@ -1,28 +1,25 @@
 import { css } from '@emotion/css';
 import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Colors } from '../../constants/colors';
 import IMember from '../../models/member';
 import { getIntervalInDaysMinutesHoursJSON} from '../../utils/dateInterval';
-import { NameStyles, ClockStyles, ClockDescriptionStyles, StatusMessageStyles, SetPriority } from './list-tem.styles';
+import { NameStyles, ClockStyles, ClockDescriptionStyles, StatusMessageStyles, SetPriority, ClockDigitsStyles, ClockDigitsDiv } from './list-tem.styles';
 
 
 function ListItem(m:IMember) : React.ReactElement {
 
-    var intervalId:any;
-
     const [dateInterval, setDateInterval] = useState(getIntervalInDaysMinutesHoursJSON(m.startingDay))
 
     useEffect(() => {
-        intervalId = setInterval(() => {
+        const intervalId = setInterval(() => {
             setDateInterval(getIntervalInDaysMinutesHoursJSON(m.startingDay))
         }, 1000);
         return () => clearInterval(intervalId);
-    }, []);
+    }, [m.startingDay]);
 
     return (
-        <div className={css` margin-bottom:20px; display: flex; align-items: flex-start; width:100%`}>
-            <Grid item xs={6} md={6} columnSpacing={{ xs: 5, sm: 2, md: 5 }} className={css`background-color:${Colors.DARK_BLUE}; height: 100%; width:auto;`}>
+        <div className={ClockDigitsDiv}>
+            <Grid item xs={6} md={6} columnSpacing={{ xs: 5, sm: 2, md: 5 }} className={ClockDigitsStyles}>
                 <div className={ClockStyles}>
                     <Grid container spacing={1} justifyContent={'space-around'} alignItems="stretch">
                         <Grid item xs={4} md={1} marginRight={1}>
