@@ -7,11 +7,16 @@ export const SelectStyles = css`
     width: 220px !important;
     min-width: 220px !important;
     text-align: left;
+    -webkit-box-shadow: 0px 3px 3px 3px ${Colors.GREY};
+    -moz-box-shadow: 0px 3px 3px 3px ${Colors.GREY};
+    box-shadow: 0px 3px 3px 3px ${Colors.GREY};
+
 ` 
 export const SelectContainerStyles = css`
     text-align:end;
     background-color:${Colors.LIST_BACKGROUND}; 
     border-radius: 5px 5px 0px 0px; 
+    padding: 1%;
 ` 
 export const RootStyles = css`    -webkit-box-shadow: 0px -1px 10px -1px ${Colors.GREY};
 -moz-box-shadow: 0px -1px 10px -1px ${Colors.GREY};

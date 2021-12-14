@@ -4,5 +4,5 @@ export const Colors = {
     RED:'#FF1721',
     WHITE:'#ffffff',
     BLACK:'#000000',
-    LIST_BACKGROUND:'#fdfbd8',
+    LIST_BACKGROUND:'#ffffff',
 }
