@@ -1,4 +1,4 @@
-export const priorityColorArray = ["#e23c52","#ffd55a","#6fc27c"]; 
+export const priorityColorArray = ["#FF1721","#fbf574","#30b828"]; 
 
 // interface IPriority{
 //     name: string | undefined;

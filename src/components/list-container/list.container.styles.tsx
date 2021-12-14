@@ -3,12 +3,11 @@ import { Colors } from "../../constants/colors";
 
 export const ListContainerStyles = css`
 
-    background-color:${Colors.GREY};
-    border-color: ${Colors.BLACK};
-    border-style: solid;
-    border-width: 3px;
-    border-radius:3px;
+    background-color:${Colors.LIST_BACKGROUND};
+
     padding: 1%;
+
+    border-radius: 0px 0px 5px 5px;
 
     display: -webkit-box;  
     display: -webkit-flex;

@@ -17,7 +17,6 @@ export const ClockStyles = css`
     font-size: 24px;
     font-family: 'Orbitron', sans-serif;
     color:${Colors.BLACK};
-    border-radius: 2px;
     border-color:black;
 
 
@@ -36,6 +35,7 @@ export const ClockDigitsDiv = css`
     border-color: ${Colors.BLACK};
     border-style: solid;
     border-width: 3px;
+    border-radius: 5px;
 `
 
 export const StatusMessageStyles = css`

@@ -6,7 +6,7 @@ import getIMembersFromResponse from '../../utils/process-response';
 import { SortingContainer,  SortingEnum } from '../../utils/sorting-utils';
 import IMember from '../../models/member';
 import ListContainer from '../list-container/list.container';
-import { SelectContainerStyles, SelectStyles } from './root-container.styles';
+import { RootStyles, SelectContainerStyles, SelectStyles } from './root-container.styles';
 
 
 function RootContainer() : React.ReactElement {
@@ -54,7 +54,7 @@ function RootContainer() : React.ReactElement {
   };
   
   return (
-    <>
+    <div className={RootStyles}>
       <div className={SelectContainerStyles}>
         <Select labelId="label" id="select" value={sortingStyle} className={SelectStyles} onChange={handleChange}>
           {
@@ -64,7 +64,7 @@ function RootContainer() : React.ReactElement {
         </Select>
       </div>
       <ListContainer list={result}/>
-    </>
+    </div>
   );
 }
 
